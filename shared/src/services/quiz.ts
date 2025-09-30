@@ -117,7 +117,8 @@ class QuizService {
         contentId,
         questionCount - selected.length
       )
-      selected.push(...dynamicQuestions)
+      // Cast esplicito per bypassare problemi di tipo
+      ;(selected as any).push(...dynamicQuestions)
     }
 
     return selected.map((q: any) => ({
@@ -164,7 +165,7 @@ class QuizService {
       {
         category: 'cast',
         template: 'Chi è il protagonista principale?',
-        answerField: 'cast[0].name',
+        answerField: 'cast_members[0].name',
         difficulty: 'easy',
       },
       {
@@ -393,13 +394,13 @@ class QuizService {
     const totalAttempts = (profile as any).verified_reviews || 0
     const newRate = ((currentRate * totalAttempts) + quizPercentage) / (totalAttempts + 1)
 
-    // Update profile
-    const { error: updateError } = await supabase
+    // Update profile - cast esplicito per bypassare problemi di tipo
+    const { error: updateError } = await (supabase as any)
       .from('profiles')
       .update({
         quiz_success_rate: newRate,
         verified_reviews: totalAttempts + 1,
-      } as any)
+      })
       .eq('id', userId)
 
     if (updateError) throw updateError

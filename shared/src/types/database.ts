@@ -78,7 +78,7 @@ export interface Database {
           release_date: string | null
           runtime: number | null
           genres: Json
-          cast: Json
+          cast_members: Json
           crew: Json
           videos: Json
           vote_average: number | null
@@ -106,7 +106,7 @@ export interface Database {
           release_date?: string | null
           runtime?: number | null
           genres?: Json
-          cast?: Json
+          cast_members?: Json
           crew?: Json
           videos?: Json
           vote_average?: number | null
@@ -134,7 +134,7 @@ export interface Database {
           release_date?: string | null
           runtime?: number | null
           genres?: Json
-          cast?: Json
+          cast_members?: Json
           crew?: Json
           videos?: Json
           vote_average?: number | null

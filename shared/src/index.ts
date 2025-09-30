@@ -1,6 +1,7 @@
 // Services
 export * from './services/tmdb'
 export * from './services/quiz'
+export * from './services/content'
 
 // Lib
 export * from './lib/supabase'
