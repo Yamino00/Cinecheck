@@ -2,6 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  // Ignora errori di build per pagine che possono fallire durante SSG
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  },
+  // Configura l'output per Vercel
+  output: 'standalone',
   images: {
     remotePatterns: [
       {
@@ -26,12 +35,23 @@ const nextConfig = {
       },
     ],
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': './src',
       '@shared': '../shared/src',
     }
+    
+    // Risolvi il problema di styled-jsx con React
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      }
+    }
+    
     return config
   },
 }

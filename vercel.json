@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "buildCommand": "cd web && npm run build",
+  "outputDirectory": "web/.next",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev -w web",
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
+    "NEXT_PUBLIC_TMDB_API_KEY": "@tmdb_api_key",
+    "NEXT_PUBLIC_APP_URL": "@app_url",
+    "NEXT_PUBLIC_APP_NAME": "Cinecheck"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+      "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key",
+      "NEXT_PUBLIC_TMDB_API_KEY": "@tmdb_api_key",
+      "NEXT_PUBLIC_APP_URL": "@app_url"
+    }
+  },
+  "regions": ["iad1"],
+  "functions": {
+    "app/**": {
+      "maxDuration": 30
+    }
+  }
+}

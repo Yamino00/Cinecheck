@@ -3,13 +3,13 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import MovieCard from '@/components/MovieCard'
-import { tmdb } from '@shared/services/tmdb'
+import { tmdb, type TMDBMovie } from '@shared/services/tmdb'
 import { PlayIcon, SparklesIcon, FireIcon, StarIcon, FilmIcon } from '@heroicons/react/24/solid'
 
 export default function HomePage() {
-  const [popularMovies, setPopularMovies] = useState([])
-  const [trendingMovies, setTrendingMovies] = useState([])
-  const [topRatedMovies, setTopRatedMovies] = useState([])
+  const [popularMovies, setPopularMovies] = useState<TMDBMovie[]>([])
+  const [trendingMovies, setTrendingMovies] = useState<TMDBMovie[]>([])
+  const [topRatedMovies, setTopRatedMovies] = useState<TMDBMovie[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('popular')
 
@@ -170,14 +170,14 @@ export default function HomePage() {
                 <MovieCard
                   id={movie.id.toString()}
                   tmdbId={movie.id}
-                  title={movie.title || movie.name}
+                  title={movie.title}
                   posterPath={movie.poster_path}
                   backdropPath={movie.backdrop_path}
-                  releaseDate={movie.release_date || movie.first_air_date}
+                  releaseDate={movie.release_date}
                   rating={movie.vote_average}
                   type="movie"
                   overview={movie.overview}
-                  genres={movie.genre_ids?.map(id => `Genre ${id}`)} // In produzione useremo una lookup table
+                  genres={[]} // Verrà popolato con i dati completi
                   isVerified={Math.random() > 0.5} // Demo
                   inWatchlist={Math.random() > 0.7} // Demo
                   isWatched={Math.random() > 0.8} // Demo
