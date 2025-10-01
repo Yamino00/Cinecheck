@@ -71,17 +71,52 @@ npm install
 
 ⚠️ **CRITICO**: Aggiungi tutte queste variabili **PRIMA** del deploy!
 
-Click "Environment Variables" e aggiungi:
+**🚀 METODO RAPIDO: Importa il file `.env`**
 
-| Name | Value | Environment |
-|------|-------|-------------|
-| `NEXT_PUBLIC_SUPABASE_URL` | `https://myrhdfglwnosaukymzdi.supabase.co` | Production, Preview, Development |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im15cmhkZmdsd25vc2F1a3ltemRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNDE3MjcsImV4cCI6MjA3NDcxNzcyN30.zNvF-xfNKLblA3SAtU5rGqazPEw_OeA6jiTv7iHPZZk` | Production, Preview, Development |
-| `NEXT_PUBLIC_TMDB_API_KEY` | `ff53bba635f14c9cb22fcf332fb3ae53` | Production, Preview, Development |
-| `NEXT_PUBLIC_TMDB_READ_ACCESS_TOKEN` | `eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjUzYmJhNjM1ZjE0YzljYjIyZmNmMzMyZmIzYWU1MyIsIm5iZiI6MTc1ODkxNjc0NC45NDgsInN1YiI6IjY4ZDZmMDg4ZmMxODE0M2M0MGI5OTJjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MSpf3pfX-0YVeWDc83esGu-o66CNRRn9kBrf6IrC-oc` | Production, Preview, Development |
-| `NEXT_PUBLIC_APP_NAME` | `Cinecheck` | Production, Preview, Development |
+1. Nella sezione "Environment Variables" di Vercel, cerca il link **"Import .env"** o il pulsante con l'icona di upload
+2. Seleziona il file: `docs/vercel.env` (dal repository)
+3. Vercel importerà automaticamente tutte le 5 variabili! ✅
 
-**Per `NEXT_PUBLIC_APP_URL`**: Aggiungi DOPO il primo deploy (Step 3)
+---
+
+**📝 METODO MANUALE (alternativo):**
+
+Se preferisci inserirle manualmente, aggiungi queste 5 variabili una alla volta:
+
+#### 1. NEXT_PUBLIC_SUPABASE_URL
+- **Key**: `NEXT_PUBLIC_SUPABASE_URL`
+- **Value**: `https://myrhdfglwnosaukymzdi.supabase.co`
+
+#### 2. NEXT_PUBLIC_SUPABASE_ANON_KEY
+- **Key**: `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+- **Value**: (copia questo token completo senza spazi):
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im15cmhkZmdsd25vc2F1a3ltemRpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTkxNDE3MjcsImV4cCI6MjA3NDcxNzcyN30.zNvF-xfNKLblA3SAtU5rGqazPEw_OeA6jiTv7iHPZZk
+```
+
+#### 3. NEXT_PUBLIC_TMDB_API_KEY
+- **Key**: `NEXT_PUBLIC_TMDB_API_KEY`
+- **Value**: `ff53bba635f14c9cb22fcf332fb3ae53`
+
+#### 4. NEXT_PUBLIC_TMDB_READ_ACCESS_TOKEN
+- **Key**: `NEXT_PUBLIC_TMDB_READ_ACCESS_TOKEN`
+- **Value**: (copia questo token completo senza spazi):
+```
+eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjUzYmJhNjM1ZjE0YzljYjIyZmNmMzMyZmIzYWU1MyIsIm5iZiI6MTc1ODkxNjc0NC45NDgsInN1YiI6IjY4ZDZmMDg4ZmMxODE0M2M0MGI5OTJjZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MSpf3pfX-0YVeWDc83esGu-o66CNRRn9kBrf6IrC-oc
+```
+
+#### 5. NEXT_PUBLIC_APP_NAME
+- **Key**: `NEXT_PUBLIC_APP_NAME`
+- **Value**: `Cinecheck`
+
+⚠️ **IMPORTANTE**: 
+- **NON** mettere virgolette o apici intorno ai valori
+- **NON** lasciare spazi prima o dopo i valori
+- Copia e incolla direttamente i token JWT completi dal blocco di codice sopra
+
+---
+
+📌 **NOTA**: La variabile `NEXT_PUBLIC_APP_URL` NON è inclusa nel file `vercel.env` perché deve contenere l'URL di produzione che otterrai DOPO il primo deploy (vedi Step 3.2)
 
 ### 2.4 Avvia il Deploy
 1. Click "Deploy"
