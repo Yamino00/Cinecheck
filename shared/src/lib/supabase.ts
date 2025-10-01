@@ -85,9 +85,10 @@ export const getProfile = async (userId: string) => {
 }
 
 export const updateProfile = async (userId: string, updates: any) => {
-  const { data, error } = await supabase
-    .from('profiles')
-    .update(updates as any)
+  // Cast esplicito per bypassare problemi di tipo Supabase
+  const client = supabase.from('profiles') as any
+  const { data, error } = await client
+    .update(updates)
     .eq('id', userId)
     .select()
     .single()

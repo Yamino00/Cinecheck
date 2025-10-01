@@ -5,6 +5,7 @@ export * from './services/content'
 
 // Lib
 export * from './lib/supabase'
+export * from './lib/utils'
 
 // Theme
 export * from './theme/colors'
