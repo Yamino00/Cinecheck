@@ -1,14 +1,5 @@
 {
-  "version": 2,
-  "buildCommand": "cd web && npm run build",
-  "outputDirectory": "web/.next",
-  "framework": "nextjs",
+  "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "devCommand": "npm run dev -w web",
-  "regions": ["iad1"],
-  "functions": {
-    "app/**": {
-      "maxDuration": 30
-    }
-  }
+  "framework": "nextjs"
 }
