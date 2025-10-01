@@ -11,6 +11,10 @@ const nextConfig = {
   },
   // Configura l'output per Vercel
   output: 'standalone',
+  // Genera pagine di errore come client components
+  experimental: {
+    clientRouterFilter: true,
+  },
   images: {
     remotePatterns: [
       {
